@@ -1,5 +1,3 @@
-import { request } from 'https';
-
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -8,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
+
 const app = express();
 
 // view engine setup
@@ -36,8 +35,6 @@ app.post('/upload', (req, res, next) => {
 
     res.json({file: `public/${req.body.filename}.jpg`});
   });
-
- 
 
 })
 
