@@ -8,7 +8,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
-const axios = request('axios');
 const app = express();
 
 // view engine setup
@@ -38,18 +37,7 @@ app.post('/upload', (req, res, next) => {
     res.json({file: `public/${req.body.filename}.jpg`});
   });
 
-  axios({
-    method:"post",
-    data:req.files.file,
-     url: "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/6a1423fc-ce0e-4246-b070-b347e167d8c9/url",
-          headers: { 
-                      "Prediction-key":"6731b30f969b4e51b30cd07e899d2cdb",
-                      "Content-Type":"application/json",
-                   }
-  }).then(res =>{
-    console.log(res);
-    
-  })
+ 
 
 })
 
